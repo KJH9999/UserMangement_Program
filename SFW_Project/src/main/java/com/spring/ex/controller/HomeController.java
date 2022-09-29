@@ -16,6 +16,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.spring.ex.dto.UserDTO;
@@ -51,6 +52,12 @@ public class HomeController {
 		return "home";
 	}
 	
+	@RequestMapping("home")
+	public String home(Model model) {
+		return "home";
+	}
+	
+	
 	@RequestMapping("login")
 	public String login(Model model) {
 		return "login";
@@ -79,7 +86,7 @@ public class HomeController {
 		if (ck != 0) {
 			System.out.println("ok");
 			session.setAttribute("id", id);
-			System.out.println("¼¼¼Ç¼³Á¤O");
+			System.out.println("ì„¸ì…˜ì„¤ì •O");
 			return "loginok";
 		} else {
 			System.out.println("no");
@@ -112,4 +119,67 @@ public class HomeController {
 	    System.out.println(result);
 	    return result; 
 	}
+	
+	@RequestMapping("updatePage")
+	public String updatePage(Model model) {
+		return "updatePage";
+	}
+	
+	@RequestMapping("updateName")
+	public String updateName(Model model) {
+		return "updateName";
+	}
+	
+	@RequestMapping("updateNumber")
+	public String updateNumber(Model model) {
+		return "updateNumber";
+	}
+	
+	@RequestMapping("updatePw")
+	public String updatePw(Model model) {
+		return "updatePw";
+	}
+	
+	@RequestMapping("updatePwOk")
+	@ResponseBody 
+	public String updatePwOk(HttpServletRequest request, Model model) {
+		HttpSession session = request.getSession();
+		System.out.println("update_pwOk()");
+		model.addAttribute("request", request);
+		userService.updatePw(model); 
+		session.invalidate();
+		return "home";
+	}
+	
+	@RequestMapping("deleteUser.do")
+	public String deleteUser(@RequestParam String id) {
+		userService.delete(id);
+		return "home";
+	}
+	
+	@RequestMapping("myInformation.do")
+	public String myInformation(@RequestParam String id, Model model) {
+		userService.information(id);
+		List<UserDTO> information = userService.information(id);
+		model.addAttribute("information", information);
+		return "myInformatoin";
+	}
+	
+	@RequestMapping("updateNameOk")
+	public String updateNameOk(HttpServletRequest request, Model model) {
+		System.out.println("updateNameOk()");
+		model.addAttribute("request", request);
+		userService.updateNameOk(model);
+		return "updatePage";	
+	}
+
+	
+	@RequestMapping("updateNumberOk")
+	public String updateNumberOk(HttpServletRequest request, Model model) {
+		System.out.println("updateNumberOk()");
+		model.addAttribute("request", request);
+		userService.updateNumberOk(model);
+		return "updatePage";	
+	}
+
 }

@@ -14,4 +14,9 @@ public interface UserDAO {
 	public int idCk(String id);
 	public List<UserDTO> findname(String id);
 	public List<UserDTO> userlist();
+	public void deleteUser(String id);
+	public void updatePw(String email, String pw);
+	public void updateName(String id, String name);
+	public void updateNumber(String id, String number);
+	public List<UserDTO> information(String id);
 }

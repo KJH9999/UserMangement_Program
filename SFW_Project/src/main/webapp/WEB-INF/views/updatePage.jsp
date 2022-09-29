@@ -13,20 +13,22 @@
 <br>
 	<%
 	
-	Object s_email = session.getAttribute("id");
-	String id = (String) s_email;
+	Object s_id = session.getAttribute("id");
+	String id = (String) s_id;
 	out.println("Session : " + id);
 	%>
 	<br />
-<%-- 	<c:forEach var="userlist" items="${userlist}">
-
+	<c:forEach var="userlist" items="${userlist}">
 			Name : ${userlist.name}
 			Number : ${userlist.number}
-
-		<br />
-	</c:forEach> --%>
+	</c:forEach>
 	<br /><br />
-		<a href="updatePage">Modify</a>
+		<a href="myInformation.do?id=${id}">MyInformation</a>&nbsp;&nbsp;&nbsp;
+		<a href="updatePw">updatePw</a>&nbsp;&nbsp;&nbsp;
+		<a href="updateName">updateName</a>&nbsp;&nbsp;&nbsp;
+		<a href="updateNumber">updateNumberw</a>&nbsp;&nbsp;&nbsp;
+		<a href="deleteUser.do?id=${id}">DeleteUser</a>
+		<br/>
 
 		<a href="logout">Logout</a>
 

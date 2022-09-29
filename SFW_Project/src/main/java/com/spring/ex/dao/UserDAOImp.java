@@ -74,4 +74,50 @@ public class UserDAOImp implements UserDAO {
 		return sqlSession.selectList("user.userList");
 	}
 
+	@Override
+	public void deleteUser(String id) {
+		HashMap<String, String> map = new HashMap<String, String>();
+		map.put("id", id);	
+		
+		sqlSession.delete("user.deleteUser", map);
+	}
+
+	@Override
+	public void updatePw(String id, String pw) {
+		HashMap<String, String> map = new HashMap<String, String>();
+		map.put("id", id);		
+		map.put("pw", pw);		
+		
+		System.out.println(id +pw);
+		sqlSession.update("user.updatePw", map);
+	}
+
+	@Override
+	public void updateName(String id, String name) {
+		HashMap<String, String> map = new HashMap<String, String>();
+		map.put("id", id);		
+		map.put("name", name);		
+		
+		System.out.println("DAO : " + id +name);
+		sqlSession.update("user.updateName", map);
+	}
+
+	@Override
+	public void updateNumber(String id, String number) {
+		HashMap<String, String> map = new HashMap<String, String>();
+		map.put("id", id);		
+		map.put("number", number);		
+		
+		System.out.println("DAO : " + id +number);
+		sqlSession.update("user.updateNumber", map);		
+	}
+
+	@Override
+	public List<UserDTO> information(String id) {
+		HashMap<String, String> map = new HashMap<String, String>();
+		map.put("id", id);	
+		System.out.println("D : " + id );
+		return sqlSession.selectList("user.findname",map);
+	}
+
 }

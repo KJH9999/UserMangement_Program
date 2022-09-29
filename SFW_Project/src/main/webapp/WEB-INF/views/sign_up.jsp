@@ -19,6 +19,8 @@
 
 	<input type="submit" value="Sign_up"> <input type="reset" value="Reset">
 </form>
+<br/>
+<a href="home">Home</a>
 
 	<script type="text/javascript"
 		src="https://code.jquery.com/jquery-3.4.1.js">

@@ -11,7 +11,7 @@
 	<p>Server port/http : 3000/8080
 <hr>
 <br>
-<a href="login">Login</a>
+<a href="login">Login</a>&nbsp;&nbsp;&nbsp;
 <a href="sign_up">Sign_up</a>
 </body>
 </html>

@@ -15,5 +15,10 @@ public interface UserService {
 	public int idCk(String email);
 	public List<UserDTO> findname(String id);
 	public List<UserDTO> userlist();
+	public void delete(String id);
+	public void updatePw(Model model);
+	public void updateNameOk(Model model);
+	public void updateNumberOk(Model model);
+	public List<UserDTO> information(String id);
 	
 }

@@ -4,9 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import javax.inject.Inject;
-import javax.servlet.ServletRequest;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
@@ -65,4 +63,54 @@ public class UserServiceImp implements UserService{
 	public List<UserDTO> userlist() {
 		return userDAO.userlist();
 	}
+
+	@Override
+	public void delete(String id) {
+		userDAO.deleteUser(id);
+	}
+
+	@Override
+	public void updatePw(Model model) {
+		Map<String, Object> map = model.asMap();
+		HttpServletRequest request = (HttpServletRequest) map.get("request");
+		String id = request.getParameter("id");
+		String pw = request.getParameter("pw");
+	   
+	    System.out.println("s : " + id + " "+ pw);
+
+		userDAO.updatePw(id,pw);
+		
+	}
+
+	@Override
+	public void updateNameOk(Model model) {
+		Map<String, Object> map = model.asMap();
+		HttpServletRequest request = (HttpServletRequest) map.get("request");
+		String id = request.getParameter("id");	
+		String name = request.getParameter("name");	
+		
+		System.out.println("s : " + id + " "+ name);
+		  
+		userDAO.updateName(id,name);
+	}
+
+	@Override
+	public void updateNumberOk(Model model) {
+		Map<String, Object> map = model.asMap();
+		HttpServletRequest request = (HttpServletRequest) map.get("request");
+		String id = request.getParameter("id");	
+		String number = request.getParameter("number");	
+		
+		System.out.println("s : " + id + " "+ number);
+		  
+		userDAO.updateNumber(id,number);
+		
+	}
+
+	@Override
+	public List<UserDTO> information(String id) {
+		System.out.println("s : " + id );
+		return userDAO.information(id);
+	}
+
 }
