@@ -52,6 +52,7 @@ public class HomeController {
 		return "home";
 	}
 	
+	
 	@RequestMapping("home")
 	public String home(Model model) {
 		return "home";
@@ -151,10 +152,25 @@ public class HomeController {
 		return "home";
 	}
 	
+	@RequestMapping("AupdatePwOk")
+	public String AupdatePwOk(HttpServletRequest request, Model model) {
+		System.out.println("AupdateNumberOk()");
+		model.addAttribute("request", request);
+		userService.updatePw(model); 
+		return admin(model);	
+	}
+
+	
 	@RequestMapping("deleteUser.do")
 	public String deleteUser(@RequestParam String id) {
 		userService.delete(id);
 		return "home";
+	}
+	
+	@RequestMapping("AdeleteUser.do")
+	public String AdeleteUser(@RequestParam String id,Model model) {
+		userService.delete(id);
+		return admin(model);
 	}
 	
 	@RequestMapping("myInformation.do")
@@ -172,7 +188,14 @@ public class HomeController {
 		userService.updateNameOk(model);
 		return "updatePage";	
 	}
-
+	
+	@RequestMapping("AupdateNameOk")
+	public String AupdateNameOk(HttpServletRequest request, Model model) {
+		System.out.println("updateNameOk()");
+		model.addAttribute("request", request);
+		userService.updateNameOk(model);
+		return admin(model);	
+	}
 	
 	@RequestMapping("updateNumberOk")
 	public String updateNumberOk(HttpServletRequest request, Model model) {
@@ -181,5 +204,28 @@ public class HomeController {
 		userService.updateNumberOk(model);
 		return "updatePage";	
 	}
-
+	
+	@RequestMapping("AupdateNumberOk")
+	public String AupdateNumberOk(HttpServletRequest request, Model model) {
+		System.out.println("AupdateNumberOk()");
+		model.addAttribute("request", request);
+		userService.updateNumberOk(model);
+		return admin(model);
+	}
+	
+	@RequestMapping("admin")
+	public String admin(Model model) {
+		List<UserDTO> userlist = userService.userlist(); 
+		model.addAttribute("userlist", userlist); 
+		return "admin/admin";
+	}
+	
+	@RequestMapping("manageUser.do")
+	public String manageUser(@RequestParam String id,Model model) {
+		userService.information(id);
+		List<UserDTO> manageUser = userService.information(id);
+		model.addAttribute("manageUser", manageUser);
+		return "admin/manageUser";
+	}
+	
 }

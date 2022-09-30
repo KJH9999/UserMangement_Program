@@ -13,6 +13,7 @@
 		PW : <input type="password" name="pw"><br/>
 		<input type="submit" value="login">
 	</form>
+	<br/>
 	<a href="home">Back</a>
 	
 </body>

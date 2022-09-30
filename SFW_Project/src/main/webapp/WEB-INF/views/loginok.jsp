@@ -26,7 +26,7 @@
 		<br />
 	</c:forEach> --%>
 	<br /><br />
-		<a href="updatePage">Modify</a>
+		<a href="updatePage">Modify</a> &nbsp;&nbsp;&nbsp;
 
 		<a href="logout">Logout</a>
 
