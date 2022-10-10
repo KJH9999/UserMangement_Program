@@ -77,10 +77,10 @@ public class HomeController {
 		String id = request.getParameter("id");
 		System.out.println("loginOK: "+ id);
 		
-		List<UserDTO> userlist = userService.findname(id);
+//		List<UserDTO> userlist = userService.findname(id);
 		
 		model.addAttribute("request", request);
-		model.addAttribute("userlist", userlist);
+//		model.addAttribute("userlist", userlist);
 
 		int ck = userService.loginUser(model);
 		System.out.println(ck);
@@ -88,7 +88,7 @@ public class HomeController {
 			System.out.println("ok");
 			session.setAttribute("id", id);
 			System.out.println("세션설정O");
-			return "loginok";
+			return "updatePage";
 		} else {
 			System.out.println("no");
 			return "home";
@@ -226,6 +226,14 @@ public class HomeController {
 		List<UserDTO> manageUser = userService.information(id);
 		model.addAttribute("manageUser", manageUser);
 		return "admin/manageUser";
+	}
+	
+	@RequestMapping("approveOk")
+	public String approveOk(HttpServletRequest request, Model model) {
+		System.out.println("approveOk()");
+		model.addAttribute("request", request);
+		userService.approve(model);
+		return admin(model);
 	}
 	
 }

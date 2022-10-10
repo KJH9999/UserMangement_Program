@@ -6,7 +6,7 @@ public class UserDTO {
 	private String pw;
 	private String name;
 	private String number;
-	
+	private int approve;
 	public String getId() {
 		return id;
 	}
@@ -31,10 +31,13 @@ public class UserDTO {
 	public void setNumber(String number) {
 		this.number = number;
 	}
-	
-	@Override
-	public String toString() {
-		return "UserDTO [id=" + id + ", pw=" + pw + ", name=" + name + ", number=" + number + "]";
+	public int getApprove() {
+		return approve;
 	}
+	public void setApprove(int approve) {
+		this.approve = approve;
+	}
+	
+	
 
 }

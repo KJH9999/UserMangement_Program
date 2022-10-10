@@ -9,9 +9,9 @@
 	</select>
 
 	<insert id="insertUser">
-		INSERT INTO user(id, pw, name,number)
+		INSERT INTO user(id, pw, name,number,approve)
 		VALUES(#{id},
-		#{pw}, #{name},#{number})
+		#{pw}, #{name},#{number},0)
 	</insert>
 
 
@@ -63,6 +63,12 @@
 	<update id="updateNumber">
 		UPDATE user
 		SET number = #{number}
+		WHERE id = #{id}
+	</update>
+	
+	<update id="approve">
+		UPDATE user
+		SET approve = 1
 		WHERE id = #{id}
 	</update>
 	

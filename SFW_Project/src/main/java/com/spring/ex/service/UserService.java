@@ -20,5 +20,6 @@ public interface UserService {
 	public void updateNameOk(Model model);
 	public void updateNumberOk(Model model);
 	public List<UserDTO> information(String id);
+	public void approve(Model model);
 	
 }

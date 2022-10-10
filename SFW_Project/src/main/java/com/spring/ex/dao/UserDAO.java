@@ -19,4 +19,5 @@ public interface UserDAO {
 	public void updateName(String id, String name);
 	public void updateNumber(String id, String number);
 	public List<UserDTO> information(String id);
+	public void approve(String id);
 }

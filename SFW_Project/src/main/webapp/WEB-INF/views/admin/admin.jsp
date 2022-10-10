@@ -18,6 +18,7 @@
 			<td>PW</td>
 			<td>NAME</td>
 			<td>NUMBER</td>
+			<td>APPROVE</td>
 		</tr>
 
 		<c:forEach items="${userlist}" var="userlist">
@@ -27,6 +28,7 @@
 				<td>${userlist.pw}</td>
 				<td>${userlist.name}</td>
 				<td>${userlist.number}</td>
+				<td>${userlist.approve}</td>
 			</tr>
 		</c:forEach>
 

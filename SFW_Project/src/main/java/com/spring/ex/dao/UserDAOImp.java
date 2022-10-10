@@ -120,4 +120,13 @@ public class UserDAOImp implements UserDAO {
 		return sqlSession.selectList("user.findname",map);
 	}
 
+	@Override
+	public void approve(String id) {
+		HashMap<String, String> map = new HashMap<String, String>();
+		map.put("id", id);		
+		
+		System.out.println("DAO : " + id );
+		sqlSession.update("user.approve", map);	
+	}
+
 }

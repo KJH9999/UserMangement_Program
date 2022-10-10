@@ -113,4 +113,15 @@ public class UserServiceImp implements UserService{
 		return userDAO.information(id);
 	}
 
+	@Override
+	public void approve(Model model) {
+		Map<String, Object> map = model.asMap();
+		HttpServletRequest request = (HttpServletRequest) map.get("request");
+		String id = request.getParameter("id");	
+		
+		System.out.println("s : " + id );
+		  
+		userDAO.approve(id);
+	}
+
 }

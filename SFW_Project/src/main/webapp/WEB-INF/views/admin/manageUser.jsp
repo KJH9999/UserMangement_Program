@@ -12,26 +12,34 @@
 	<hr>
 	<br />
 	<c:forEach var="manageUser" items="${manageUser}">
-			ID : ${manageUser.id}	
+			ID : ${manageUser.id} &nbsp;&nbsp;&nbsp;
 		<br />
 		<br />
-			Password : ${manageUser.pw} <form action="AupdatePwOk" method="post">
-			<input type="hidden" name="id" value="${manageUser.id}"><input
-				type="text" name="pw"><input type="submit" value="UpdatePW">
+		<form action="approveOk" method="get">
+			<input type="hidden" name="id" value="${manageUser.id}">
+			Approve : ${manageUser.approve}&nbsp;&nbsp;&nbsp;<input type="submit"
+				value="Approve">
+		</form>
+
+		<br />
+		<form action="AupdatePwOk" method="post">
+			Password : ${manageUser.pw}&nbsp;&nbsp;&nbsp; <input type="hidden"
+				name="id" value="${manageUser.id}"><input type="text"
+				name="pw"><input type="submit" value="UpdatePW">
 		</form>
 		<br />
-			Name : ${manageUser.name} 
-			<form action="AupdateNameOk" method="get">
-			<input type="hidden" name="id" value="${manageUser.id}"><input
-				type="text" name="name"><input type="submit"
-				value="UpdateName">
+
+		<form action="AupdateNameOk" method="get">
+			Name : ${manageUser.name} &nbsp;&nbsp;&nbsp; <input type="hidden"
+				name="id" value="${manageUser.id}"><input type="text"
+				name="name"><input type="submit" value="UpdateName">
 		</form>
 		<br />
-			Number : ${manageUser.number}
-			<form action="AupdateNumberOk" method="get">
-			<input type="hidden" name="id" value="${manageUser.id}"><input
-				type="text" name="number"><input type="submit"
-				value="UpdateNuber">
+
+		<form action="AupdateNumberOk" method="get">
+			Number : ${manageUser.number}&nbsp;&nbsp;&nbsp; <input type="hidden"
+				name="id" value="${manageUser.id}"><input type="text"
+				name="number"><input type="submit" value="UpdateNuber">
 		</form>
 		<br />
 		<a href="AdeleteUser.do?id=${manageUser.id}">DeleteUser</a>
