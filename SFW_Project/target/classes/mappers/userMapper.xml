@@ -19,7 +19,7 @@
 		SELECT COUNT(*)
 		FROM user
 		WHERE id =
-		#{id} AND pw = #{pw}
+		#{id} AND pw = #{pw} AND approve = 1
 	</select>
 
 
@@ -57,7 +57,7 @@
 	<update id="updateName">
 		UPDATE user
 		SET name = #{name}
-		WHERE id = #{id}
+		WHERE id = #{id} 
 	</update>
 	
 	<update id="updateNumber">
@@ -71,5 +71,6 @@
 		SET approve = 1
 		WHERE id = #{id}
 	</update>
+	
 	
 </mapper>
