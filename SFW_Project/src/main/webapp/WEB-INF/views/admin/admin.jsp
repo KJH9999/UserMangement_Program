@@ -34,6 +34,6 @@
 
 	</table>
 	<br/>
-	<a href="home">UserPage</a>
+	<a href="logout">UserPage</a>
 </body>
 </html>
